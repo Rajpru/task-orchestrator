@@ -1,1 +1,18 @@
-spring.application.name=orchestrator
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:h2:file:./data/taskdb;DB_CLOSE_ON_EXIT=FALSE;AUTO_RECONNECT=TRUE
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+
+orchestrator:
+  concurrency: 3
+  max-retries: 3
+  base-backoff-ms: 1000
